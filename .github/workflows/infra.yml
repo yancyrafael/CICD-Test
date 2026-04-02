@@ -3,6 +3,16 @@ name: Infrastructure Deployment
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Choose action"
+        required: true
+        default: "destroy"
+        type: choice
+        options:
+          - apply
+          - destroy
 
 jobs:
   deploy:
